@@ -1,4 +1,3 @@
-# backend/routers/analyze.py
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 import pandas as pd
@@ -15,7 +14,7 @@ ai_service = AIService(power_predictor, method_recommender)
 # Request model for frontend JSON
 class DatasetRequest(BaseModel):
     dataset: list[list[Any]]  # Accept strings, numbers, etc.
-    task: str = "regression"  # default task
+    task: str = "regression"  
 
 @router.post("/")
 async def analyze_dataset(req: DatasetRequest):
